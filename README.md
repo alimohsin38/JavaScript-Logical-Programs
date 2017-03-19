@@ -1,9 +1,9 @@
 <ul>
   <li>
-    This tutorial will help you for making the JavaScript logical programs.
+    This tutorial will helps you to making the JavaScript logical programs easily.
   </li>
   <li>
-    I try to cover approximately most of the logical examples.
+    I'll try to cover approximately most of the logical JavaScript programs examples here.
   </li>
   <li>
     This will give you examples for the logical programs.
