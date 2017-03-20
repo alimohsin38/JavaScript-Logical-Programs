@@ -1,6 +1,6 @@
 (function(){
     setTimeout(function(){console.log("Welcome In The JavaScript World Environment !!")}, 1000);
-})();
+})();     // SelfInvoking Function
 
 //OR
 
@@ -13,3 +13,5 @@ arr.sort(descendingSort);      // CallBack Function
 var arr = [8, 6, 0, 55, 2, 67];
 var descendingSort = (a, b)=>{return b-a}  // ECMA6 function declaration. Here "()=>{}" = "function(){}"
 arr.sort(descendingSort);      // CallBack Function
+
+
