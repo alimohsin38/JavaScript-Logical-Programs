@@ -1,4 +1,11 @@
 function divide(a, b, callBack){
+	console.log("a= " + a + ", " + "b= " + b + ", " + "Result =" + callBack(a/b));
+};
+divide(10, 5, function(result){ var result = result; return result; });   // CallBack function
+
+//OR
+
+function divide(a, b, callBack){
 	callBack(a/b);
 };
 divide(10, 5, function(result){console.log("My result is : " + result);});   // CallBack function
