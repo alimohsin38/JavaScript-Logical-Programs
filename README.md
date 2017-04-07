@@ -25,6 +25,6 @@
 Thanks,
 Best Regards
 <b>MOHSIN ALI__
-Front End Developer</b>
+UI Developer</b>
 <a href="mailto:ali.mohsin38@gmail.com">ali.mohsin38@gmail.com</a>
 </pre>
