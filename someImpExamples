@@ -1,0 +1,139 @@
+var arr = [0, 1, false, 2, '', 3]
+
+arr.forEach((arr) => {
+	if(arr){
+		console.log(arr)
+    }
+})
+
+/////////////////////////////////////////
+
+var arr = [0, 1, false, 2, '', 3]
+
+for(let indxValue of arr){
+	if(indxValue){
+		console.log(arr[indxValue], indxValue)
+	}
+}
+
+///////////////////////////////////////
+
+var arr = [0, 1, false, 2, '', 3]
+
+for(let indx in arr){
+	if(arr[indx]){
+		console.log(indx, arr[indx])
+	}
+}
+
+////////////////////////////////////////
+
+//Flat an array with Closure mechanism...
+
+var arr = [1,2,[3,4],[5,6,[7,8, [8,7,6]]]];
+
+var flatArrayAsStr = (function(arr){
+    var newArr = [];
+
+    return function arrFlat(arr){
+        var arrLength = arr.length;
+
+        for(var i=0; i<arrLength; i++){
+            if(Array.isArray(arr[i])){			
+                arrFlat(arr[i])		
+            }else {
+                newArr.push(arr[i])
+            }
+        }
+		return newArr.join();
+    }
+	arrFlat(arr);
+})(arr);
+
+flatArrayAsStr(arr);
+
+/////////////////////////////////////////////////
+
+//Prototype example with a callback
+
+function proto(fName, age, language){
+	this.fName = fName;
+	this.age = age;
+	this.language = language()
+}
+proto.prototype.lName = function(lName) {
+	this.lName = lName;
+	return this.lName
+}
+var walterProto = new proto('Walter', 29, function(){return 'English'})
+var sjhonProto = new proto('Sjhon', 28, function(){return 'Spanish'})
+walterProto.lName('White')
+sjhonProto.lName('Michel')
+console.log(walterProto, sjhonProto)
+
+/////////////////////////////////////////////////
+
+var obj = {fName: 'Mohsin', lName: 'Ali', fullName: function(){return this.fName+ " " +this.lName}}
+var obj2 = Object.assign({}, obj)
+obj2.fName = 'Walter'
+obj2.lName = 'White'
+console.log(obj.fullName(),obj2.fullName())
+console.log(obj,obj2)
+
+//////////////////////////////////////////////////
+
+//Prototype example with a callback and Generator function
+
+function proto(fName, age, language){
+	this.fName = fName;
+	this.age = age;
+	this.language = language()
+}
+function vichelName(vichelName){
+	this.vichel = vichelName;
+	return this.vichel;
+}
+proto.prototype.lName = function(lName) {
+	this.lName = lName;
+	return this.lName
+}
+proto.prototype.vichel = function*(transportService){	
+	this.vichel = vichelName(transportService);
+	let msg = '\n\n\////////////************////////////\n\
+Hi i am inside a Generator function before Paused';
+
+	console.log(msg);
+	yield 'Paused';
+	console.log('Bye Bye Generator function !!');
+	return this.vichel;	
+}
+
+var walterProto = new proto('Walter', 29, function(){return 'English'})
+var sjhonProto = new proto('Sjhon', 28, function(){return 'Spanish'})
+var _walter = walterProto.vichel('Polo')
+var _sjhon = sjhonProto.vichel('Suzuki')
+walterProto.lName('White')
+sjhonProto.lName('Michel')
+
+_walter.next()
+console.log("Hello World !!, now i am outside the Generator function after Paused", walterProto)
+_walter.next()
+
+
+_sjhon.next()
+console.log("Hello World !!, now i am outside the Generator function after Paused", sjhonProto)
+_sjhon.next()
+console.info()
+
+//////////////////////////////////////////////////////////
+
+//Async await function example
+
+async function f() {
+  let promise = new Promise((resolve, reject)=> {
+	setTimeout(() => resolve("done!"), 1000)
+  });
+  let result = await promise; // wait till the promise resolves (*)
+  console.log(result); // "done!"
+}
+f().then((res)=>{console.log('done!')});
